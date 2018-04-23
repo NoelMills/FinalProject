@@ -14,6 +14,7 @@ int main(int argc, char * arv[]){
     srand(time(0));
     int turn = 1;
     
+    
     // Set up Player board
     Board pb;
     // Create player deck and draw initial hand here:
@@ -43,7 +44,7 @@ void renderBoard(Board & pb, Board & ob){
     pb.renderMana();
     cout << "HP: " << pb.getHP() << " Opponent's HP: " << ob.getHP() << endl;
     
-    //clearScreen(1);
+    system ("clear(1)");
 }
 
 void getOpponentAction(Board & playerBoard, Board & opponentBoard){
