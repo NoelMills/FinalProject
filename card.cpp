@@ -16,3 +16,27 @@ string Card::render(int line){
             return " ";
     }
 }
+
+string Card::getName(void){
+    
+}//Needs Content
+
+int Card::getManaCost(void){
+    
+}//Needs Content
+
+int Card::getAttack(void){
+    
+}//Needs Content
+
+int Card::getDefense(void){
+    
+}//Needs Content
+
+bool Card::isExhausted(void){
+    
+}//Needs Content
+
+void Card::unExhaust(void){
+    
+}//Needs Content
