@@ -2,6 +2,35 @@
 
 using namespace std;
 
+Card::Card(){
+    name = "E404";
+    manaCost = 0;
+    attack = 0;
+    defense = 0;
+}
+
+Card::Card(string n, int mana, int atk, int def){
+    if(atk < 0){
+        attack = 0;
+    }
+    else{
+        attack =atk;
+    }
+    if(mana < 0){
+        manaCost = 0;
+    }
+    else{
+        manaCost = mana;
+    }
+    if(def < 0){
+        defense = 0;
+    }
+    else{
+        defense = def;
+    }
+    name = n;
+}
+
 string Card::render(int line){
     switch(line){
         case 0: return ".___________.";
@@ -18,23 +47,24 @@ string Card::render(int line){
 }
 
 string Card::getName(void){
-    
-}//Needs Content
+    return name;
+}
 
 int Card::getManaCost(void){
-    
-}//Needs Content
+    return manaCost;
+}
 
 int Card::getAttack(void){
-    
-}//Needs Content
+    return attack;   
+}
 
 int Card::getDefense(void){
-    
-}//Needs Content
+    return defense;
+}
 
 bool Card::isExhausted(void){
     
+    return true;
 }//Needs Content
 
 void Card::unExhaust(void){

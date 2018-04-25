@@ -22,6 +22,7 @@ class Card{
          * This will be used by derived classes.
          */
         Card(string, int, int, int);
+        Card(void);
     
         /* Render
          *

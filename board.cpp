@@ -15,28 +15,31 @@ Card* Board::getCardOnField(int){
 }//Needs Content
 
 void Board::setHP(int health){ 
-    
-}//Needs Content
+    health = 2000;
+    hp = health;
+}//Needs Fix
 
 int Board::getHP(void){
-    
-}//Needs Content
+    return hp;
+}
 
 int Board::getHandSize(void){
-    
-}//Needs Content
+    return hand.size();
+}
 
 int Board::getFieldSize(void){
-    
-}//Needs Content
+    return field.size();
+}
 
-void Board::setMana(int mana){
-
-}//Needs Content
+void Board::setMana(int turn){
+    maxMana = turn;
+    mana = maxMana + mana;
+}//Needs Fix
 
 int Board::getMana(void){
     
-}//Needs Content
+    return mana;
+}
 
 void Board::shuffleDeck(void){
     Card * temp;
@@ -56,8 +59,18 @@ void Board::addToDeckList(Card* character){
 }//Needs Content
 
 void Board::draw(int index){
-    
-}//Needs Content
+    if(hand.size() >= 5){
+        return;
+    }
+    else{
+        if(deck.size() ==0){
+            return;
+        }
+        else{
+            hand[5] = deck[0];
+        }
+    }
+}//Needs Fix
 
 void Board::renderMana(void){
     cout << "MANA: ";
