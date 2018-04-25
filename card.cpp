@@ -64,9 +64,9 @@ int Card::getDefense(void){
 
 bool Card::isExhausted(void){
     
-    return true;
+    return exhausted;
 }//Needs Content
 
 void Card::unExhaust(void){
-    
+    exhausted = false;
 }//Needs Content

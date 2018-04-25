@@ -3,21 +3,26 @@
 using namespace std;
 
 Board::Board(void){
-    
-}//Needs Content
+    hp = 2000;
+    maxMana = 15;
+}
 
-Card* Board::getCardInHand(int){
-    
-}//Needs Content
+Card* Board::getCardInHand(int i){
+    return hand[i];
+}
 
-Card* Board::getCardOnField(int){
-    
-}//Needs Content
+Card* Board::getCardOnField(int i){
+    return field[i];
+}
 
 void Board::setHP(int health){ 
-    health = 2000;
-    hp = health;
-}//Needs Fix
+    if(health < 0){
+        hp = 0;
+    }
+    else{
+        hp = health;
+    }
+}
 
 int Board::getHP(void){
     return hp;
@@ -32,9 +37,11 @@ int Board::getFieldSize(void){
 }
 
 void Board::setMana(int turn){
-    maxMana = turn;
-    mana = maxMana + mana;
-}//Needs Fix
+    mana = turn + mana;
+    if(mana > maxMana){
+        mana = maxMana;
+    }
+}
 
 int Board::getMana(void){
     
@@ -55,22 +62,20 @@ void Board::shuffleDeck(void){
 }
 
 void Board::addToDeckList(Card* character){
-    
-}//Needs Content
+    deck.push_back(character);
+}
 
 void Board::draw(int index){
-    if(hand.size() >= 5){
-        return;
+    for(int i = 0; i < index; i++){
+        if(deck.size() ==5){
+            deck = discard;
+            discard.clear();
+            shuffleDeck();
     }
-    else{
-        if(deck.size() ==0){
-            return;
-        }
-        else{
-            hand[5] = deck[0];
-        }
+    hand.push_back(deck[deck.size()-1]);
+    deck.pop_back();
     }
-}//Needs Fix
+}
 
 void Board::renderMana(void){
     cout << "MANA: ";
@@ -118,14 +123,19 @@ void Board::playCardFromHand(int i){
         return;
     }
     else{
-   // mana -= hand[i]->
+     mana -= hand[i]->getManaCost();
+     field.push_back(hand[i]);
+     hand.erase(hand.begin()+i);
     }
-} //Needs Content
+} 
 
-void Board::discardCardFromField(int discard){
-    
-}//Needs Content
+void Board::discardCardFromField(int card){
+    discard.push_back(field[card]);
+    field.erase(field.begin() + card);
+}
 
 void Board::unExhaustField(void){
-    
-}//Needs Content
+    for(int i = 0; i < field.size(); i++){
+        field[i]->unExhaust();
+    }
+}
