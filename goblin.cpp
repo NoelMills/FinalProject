@@ -133,7 +133,7 @@ string Knight::render(int line){
     
     switch(line){
         case 0: return ".___________.";
-        case 1: return "|KKnight   7|";
+        case 1: return "|Knight    7|";
         case 2: return "|    .-.    |";
         case 3: return "|  __|=|__  |";
         case 4: return "| (_/'_'\\_) |";
@@ -160,3 +160,43 @@ string Wizard::render(int line){
             return " ";
     }
 }//Art Done
+
+Goblin::Goblin(void){
+    Card("Goblin", 1, 200, 100);
+}
+
+Warrior::Warrior(void){
+    Card("Warrior", 3, 300, 400);
+}
+
+Wizard::Wizard(void){
+   Card("Wizard", 2, 400, 100); 
+}
+
+Dragon::Dragon(void){
+    Card("Dragon", 6, 700, 500);
+}
+
+Bear::Bear(void){
+    Card("Bear", 2, 200, 300);
+}
+
+Shue::Shue(void){
+    Card("Shue", 10, 1000, 700);
+}
+
+Penguin::Penguin(void){
+    Card("Penguin", 1, 100, 400);
+}
+
+BlueEyesWhiteDragon::BlueEyesWhiteDragon(void){
+    Card("BlueEyesWhiteDragon", 8, 900, 800);
+}
+
+Knight::Knight(void){
+    Card("Knight", 7, 800, 700);
+}
+
+Shaman::Shaman(void){
+    Card("Shaman", 5, 500, 300);
+}
